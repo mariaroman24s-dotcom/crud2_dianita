@@ -5,8 +5,7 @@ if (!$connection) {
     die("Error de conexión a la base de datos");
 }
 
-
-/*  CREATE */
+/* CREATE */
 if (isset($_POST['crear'])) {
 
     $nombre = $_POST['nombre'];
@@ -23,6 +22,32 @@ if (isset($_POST['crear'])) {
             window.location.href='index.php';
         </script>";
     }
+}
+
+/* READ */
+$query = "SELECT id, nombre, puesto, salario FROM personas ORDER BY id DESC";
+$result = pg_query($connection, $query);
+
+if ($result && pg_num_rows($result) > 0) {
+
+    echo "<table class='tabla-personas'>";
+    echo "<tr>
+            <th>Nombre</th>
+            <th>Puesto</th>
+            <th>Salario</th>
+        </tr>";
+
+    while ($row = pg_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . htmlspecialchars($row['nombre']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['puesto']) . "</td>";
+        echo "<td>$" . htmlspecialchars($row['salario']) . "</td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
+} else {
+    echo "<p>No hay personas registradas ❤️</p>";
 }
 
 pg_close($connection);
