@@ -1,0 +1,137 @@
+body {
+    background-color: #ffe6f2;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #fff0f7;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+}
+
+h2 {
+    color: #d16b8f;
+    text-align: center;
+    text-shadow: 1px 1px 1px #944d6f;
+}
+
+#btn_agregar {
+    background-color: #ff9ecb;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#btn_agregar:hover {
+    background-color: #ff7ab8;
+}
+
+.tabla-personas {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabla-personas th {
+    background-color: #ff9ecb;
+    color: white;
+    padding: 10px;
+}
+
+.tabla-personas td {
+    padding: 12px;
+    border-bottom: 1px solid #ffd3e6;
+}
+
+.btn-ver, .btn-editar, .btn-eliminar {
+    padding: 7px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-ver {
+    background-color: #ffe6f2;
+}
+
+.btn-editar {
+    background-color: #ff7ab8;
+    color: white;
+}
+
+.btn-eliminar {
+    background-color: #d94b7b;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #d167a3;
+}
+
+.btn-eliminar:hover {
+    background-color: #b23a63;
+}
+
+/* MODALES */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 8% auto;
+    padding: 20px;
+    width: 45%;
+    border-radius: 10px;
+    animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.cerrar, .cerrarFormulario {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+    color: #d94b7b;
+}
+.cerrar:hover, .cerrarFormulario:hover {
+    color: #b23a63;
+}
+
+form input {
+    width: 95%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #ffe6f2;
+    border: 1px solid #ffcce0;
+}
+
+form button {
+    background-color: #ff7ab8;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
