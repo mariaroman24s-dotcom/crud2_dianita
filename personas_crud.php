@@ -50,5 +50,19 @@ if ($result && pg_num_rows($result) > 0) {
     echo "<p>No hay personas registradas ❤️</p>";
 }
 
+/*DELETE */
+if (isset($_POST["eliminar"])) {
+    $id = $_POST["id"];
+
+    $query = "DELETE FROM personas WHERE id = $1";
+    pg_prepare($connection, "delete_persona", $query);
+    pg_execute($connection, "delete_persona", [$id]);
+
+    echo "<script>
+        alert('Persona eliminada correctamente 💔');
+        window.location.href='index.php';
+    </script>";
+}
+
 pg_close($connection);
 ?>
