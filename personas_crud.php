@@ -64,5 +64,26 @@ if (isset($_POST["eliminar"])) {
     </script>";
 }
 
+/*UPDATE */
+if (isset($_POST['actualizar'])) {
+
+    $id = $_POST["id"];
+    $nombre = $_POST["nombre"];
+    $puesto = $_POST["puesto"];
+    $salario = $_POST["salario"];
+
+    $query = "UPDATE personas 
+              SET nombre=$1, puesto=$2, salario=$3 
+              WHERE id=$4";
+
+    pg_prepare($connection, "update_persona", $query);
+    pg_execute($connection, "update_persona", [$nombre, $puesto, $salario, $id]);
+
+    echo "<script>
+            alert('Persona actualizada con éxito 💕');
+            window.location.href='index.php';
+        </script>";
+}
+
 pg_close($connection);
 ?>
